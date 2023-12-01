@@ -46,6 +46,10 @@
   vertical-align: middle;
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 .ham-icon:hover {
   cursor: pointer;
 }
