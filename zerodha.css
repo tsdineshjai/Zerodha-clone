@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 2px 1px 2px #eee;
+  padding: 23px 0;
+}
+
+.links ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #666;
+  padding: 17px;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.links ul li a:hover {
+  color: #387ed1;
+}
+
+.navbar .logo {
+  max-height: 17px;
+  vertical-align: middle;
+}
+
+.ham-icon:hover {
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  height: 2px;
+  width: 17px;
+  margin: 4px 0;
+  background-color: #666;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+  margin-bottom: 65px;
+}
+
+.landing-page {
+  max-height: 45vh;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+footer h1 {
+  color: #424242;
+  font-size: 3.25rem;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+footer p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-top: 5px;
+}
+
+footer button {
+  background-color: #387ed1;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-top: 50px;
+  padding: 0.5rem 1.75rem;
+  font-size: 1.45rem;
+}
+
+footer button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
