@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+
+
+
+    <div class="sum">
+      <input type="number" name="principal" id="principal" placeholder="principal..">
+      <br>
+      <input type="number" name="rate" id="rate" placeholder="rate..">
+      <br>
+      <input type="number" name="tenure" id="tenure" placeholder="tenure...">
+      <br>
+      The Simple Interest is :<span id="result"></span>
+      <br>
+      <button class="caluculate" onclick="caluculate()">Calucualte the sum</button>
+    </div>
+
+    <script>
+
+      function caluculate() {
+        const p = document.getElementById("principal").value;
+        const r = document.getElementById("rate").value;
+        const t = document.getElementById("tenure").value;
+
+        fetch(`http://localhost:3000/interest?principal=${p}&rate=${r}&tenure=${t}`)
+          .then((response) => response.text())
+          .then((value) => {
+            document.getElementById("result").innerHTML = result;
+          })
+        document.getElementById("first").value = "";
+        document.getElementById("second").value = "";
+      }
+
+    </script>
+  </body>
+
+</html>
