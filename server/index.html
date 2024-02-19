@@ -13,18 +13,26 @@
 
 
     <div class="sum">
-      <input type="number" name="principal" id="principal" placeholder="principal..">
+      <input oninput="debounce()" type="number" name="principal" id="principal" placeholder="principal..">
       <br>
-      <input type="number" name="rate" id="rate" placeholder="rate..">
+      <input oninput="debounce()" type="number" name="rate" id="rate" placeholder="rate..">
       <br>
-      <input type="number" name="tenure" id="tenure" placeholder="tenure...">
+      <input oninput="debounce()" type="number" name="tenure" id="tenure" placeholder="tenure...">
       <br>
       The Simple Interest is :<span id="result"></span>
       <br>
-      <button class="caluculate" onclick="caluculate()">Calucualte the sum</button>
+      <button class="caluculate" onclick="debounce()">Calucualte the sum</button>
     </div>
 
     <script>
+
+      let timeoutId;
+      function debounce() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          caluculate()
+        }, 1000)
+      }
 
       function caluculate() {
         const p = document.getElementById("principal").value;
@@ -32,12 +40,13 @@
         const t = document.getElementById("tenure").value;
 
         fetch(`http://localhost:3000/interest?principal=${p}&rate=${r}&tenure=${t}`)
-          .then((response) => response.text())
-          .then((value) => {
-            document.getElementById("result").innerHTML = result;
+          .then((response) => {
+            console.log(response)
+            return response.json()
           })
-        document.getElementById("first").value = "";
-        document.getElementById("second").value = "";
+          .then((value) => {
+            document.getElementById("result").innerHTML = value.simpleInterest;
+          })
       }
 
     </script>

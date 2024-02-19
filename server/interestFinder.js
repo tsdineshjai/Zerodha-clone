@@ -22,8 +22,20 @@ app.get("/interest", (req, res) => {
 				"required paramaters is found in wrong format or required paramaters are not mentioned"
 			);
 	}
-	const SI = (principal * rate * tenure) / 100;
-	res.status(200).json({
-		simpleInterest: SI,
-	});
+	let timeoutID;
+	function debouncing(func, delay) {
+		clearTimeout(timeoutID);
+		//clear the old timer
+
+		//start the newTimer
+		timeoutID = setTimeout(() => {
+			func.apply(this, arguments);
+		}, delay);
+	}
+	debouncing(() => {
+		const SI = (principal * rate * tenure) / 100;
+		res.status(200).json({
+			simpleInterest: SI,
+		});
+	}, 300);
 });
