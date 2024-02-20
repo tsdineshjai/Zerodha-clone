@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+
+  <body>
+
+    <section>
+      <label for="todo" id="todo">Enter your todo:
+        <input type="text" name="todo" id="todo">
+      </label>
+      <br>
+      <label for="todo-details" id="todo-details">Enter your todo-details:
+        <input type="text" name="todo-details" id="todo-details">
+      </label>
+      <br>
+
+      <button class="add" onclick="addToCart()">Add to todoList</button>
+      <br>
+      <br>
+      <div id="todosList">
+
+
+      </div>
+
+
+    </section>
+
+    <script>
+
+      function addToCart() {
+        const todo = document.querySelector("#todo").childNodes[1].value;
+
+        const todoDetails = document.querySelector("#todo-details").childNodes[1].value;
+
+
+        document.getElementById("todosList").innerHTML = document.getElementById("todosList").innerHTML +
+          `
+          <div>
+            <p>${todo}</p>
+            <p>${todoDetails}</p>
+            <button id="task-done" onclick="handleClick(this)">Mark as done</button>
+          </div>
+
+          `
+
+
+
+
+      }
+
+      function handleClick(obj) {
+        obj.innerHTML = `<s>done!</s>`
+      }
+
+    </script>
+    <!-- 
+
+      
+        const doneButton = document.createElement("button");
+        doneButton.innerText = "Mark as done";
+        doneButton.setAttribute("id", "task-done");
+        doneButton.setAttribute("onclick", "handleClick(this)");
+
+
+
+          const todo1 = document.createElement("article");
+        todo1.textContent = todo;
+        document.getElementById("todosList").appendChild(todo1);
+
+        const todoDet = document.createElement("article");
+        todoDet.textContent = todoDetails;
+        document.getElementById("todosList").appendChild(todoDet);
+
+        document.getElementById("todosList").appendChild(doneButton);
+
+        const space = document.createElement("div")
+        space.innerHTML = "<br>";
+        document.getElementById("todosList").appendChild(space);
+     -->
+
+  </body>
+
+</html>

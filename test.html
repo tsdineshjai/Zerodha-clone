@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+
+    <button id="1" onclick="handleClick(this.id)">Click to change the text</button>
+    <br><br>
+    <button id="2" onclick="handleClick(this.id)">Click to change the text</button>
+    <br><br>
+    <button id="3" onclick="handleClick(this.id)">Click to change the text</button>
+
+    <script>
+
+
+      function handleClick(id) {
+
+        const button = document.getElementById(id);
+        button.innerHTML = `done!`
+
+
+      }
+
+      console.log(document.body.children)
+
+
+    </script>
+
+  </body>
+
+</html>
